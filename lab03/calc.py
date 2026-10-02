@@ -7,11 +7,8 @@ def sub(a,b):
 def mul(a,b):
     return a * b
 
-def div(a,b):
-return a / b
-
 
 
 x = float(input("Первое число: "))
 y = float(input("Второе число: "))
-print("Результат:", div(x, y))
+print("Результат:", mul(x, y))
