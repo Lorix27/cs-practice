@@ -1,4 +1,4 @@
-def parse_record(line):
+def parse_record(line): # Единственное место, где решается, что строка негодная.
     parts = line.split(";")
 
     if len(parts) != 3:
