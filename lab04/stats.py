@@ -23,7 +23,7 @@ def parse_record(line): # Единственное место, где решае
     return result
 
 
-def read_valid(lines):
+def read_valid(lines): # Ловит ValueError из parse_record и пропускает плохие строки.
     records = []
 
     for line in lines:
