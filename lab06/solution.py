@@ -28,3 +28,4 @@ def human_size(n_bytes: int) -> str:
     if index == 0:
         return f"{int(size)} {units[0]}"
     return f"{size:.1f} {units[index]}"
+# lab06 finalized
