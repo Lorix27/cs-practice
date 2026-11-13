@@ -2,6 +2,7 @@ import json
 
 
 def _cast(s: str):
+    s = s.strip()
     low = s.lower()
     if low in ("true", "yes"):
         return True
@@ -16,14 +17,16 @@ def _cast(s: str):
     except ValueError:
         return s
 
-
 def csv_to_records(text: str) -> list[dict]:
     lines = text.splitlines()
     if not lines:
         return []
-    head = lines[0].split(",")
-    return [dict(zip(head, l.split(","))) for l in lines[1:] if l]
-
+    head = [h.strip() for h in lines[0].split(",")]
+    return [
+        dict(zip(head, (v.strip() for v in line.split(","))))
+        for line in lines[1:]
+        if line.strip()
+    ]
 
 def parse_settings(lines: list[str]) -> dict:
     res, cur = {}, None
