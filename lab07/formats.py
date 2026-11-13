@@ -15,6 +15,10 @@ def _cast(s: str):
     try:
         return float(s)
     except ValueError:
+        pass
+    try:
+        return float(s.replace(",", "."))
+    except ValueError:
         return s
 
 def csv_to_records(text: str) -> list[dict]:
